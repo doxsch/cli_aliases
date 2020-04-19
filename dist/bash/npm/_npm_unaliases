@@ -2,7 +2,7 @@
 unalias npi
 unalias npis
 unalias npig
-# npm install
+# npm update
 unalias npu
 unalias npug
 

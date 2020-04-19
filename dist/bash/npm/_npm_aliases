@@ -2,6 +2,6 @@
 alias npi='npm install'
 alias npis='npm install --save'
 alias npig='npm install -g'
-# npm install
+# npm update
 alias npu='npm update'
 alias npug='npm update -g'
