@@ -1,0 +1,3 @@
+# npm install
+alias npu='npm update'
+alias npug='npm update -g'

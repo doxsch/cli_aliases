@@ -1,0 +1,5 @@
+# change directories easily
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'

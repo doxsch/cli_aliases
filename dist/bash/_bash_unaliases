@@ -1,0 +1,15 @@
+# change directories easily
+unalias ..
+unalias ...
+unalias ....
+unalias .....
+# ls
+unalias l
+# npm install
+unalias npi
+unalias npis
+unalias npig
+# npm install
+unalias npu
+unalias npug
+
