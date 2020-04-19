@@ -50,13 +50,14 @@ find ./** -type d | while read folder_path; do
   echo "doing for folder $folder_path..."
   cd $PROJECT_HOME/dist/$folder_path
   filename="$(basename $folder_path)"
-  echo "# $filename" >> "$filename.md"
-  find . -type f ! -name '*_unaliases' ! -name '_*_aliases' | while read file; do
+  echo "# $filename" >> "README.md"
+  echo 'files:'
+  find . -type f -name "_$filename\_aliases" | while read file; do
     cat $file | 
     sed "s/\(alias.*\)/\`\`\`bash\n\1\n\`\`\`/" |
-    sed "s/#/##/g" >> "$filename.md"
-    echo "" >> "$filename.md"
-    echo "" >> "$filename.md"
+    sed "s/#/##/g" >> "README.md"
+    echo "" >> "README.md"
+    echo "" >> "README.md"
   done
   echo " - $filename.md created."
   echo "---------------------------" 
