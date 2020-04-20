@@ -26,3 +26,5 @@ for i in ${!options[@]}; do
 done
 
 echo "$msg"
+options=()
+choices=()

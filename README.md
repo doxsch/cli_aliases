@@ -3,7 +3,9 @@ Helpful cli aliases to boost productivity
 
 ## Installation
 ``` bash
- source <(curl -s https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/_bash_aliases)
+ source <(curl -s -H "Cache-Control: no-cache" https://raw.githubusercontent.com/doxsch/cli_aliases/master/install.sh)
  ```
+
+
 
 ## Uninstalltion
