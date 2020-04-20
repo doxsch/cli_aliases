@@ -1,7 +1,9 @@
 #!/bin/bash
 
 dirname
-basname
+basename
+pwd
+
 # customize with your own.
 options=("AAA" "BBB" "CCC" "DDD" "EEE")
 
@@ -28,8 +30,4 @@ for i in ${!options[@]}; do
 done
 
 echo "$msg"
-
-for i in ${!options[@]}; do 
-    [[ "${choices[i]}" ]] && { printf " %s" "${options[i]}"; msg=""; }
-    echo "$msg"
-done
+echo "test" >> ~.cli_alias
