@@ -12,7 +12,7 @@ find ./** -type d | while read folder_path; do
   echo "doing for folder $folder_path..."
   cd $PROJECT_HOME/dist/$folder_path
   filename="_$(basename $folder_path)_aliases"
-  find . -type f ! -name '_*' | while read file; do
+  find . -type f ! -name '_*' -name '*_aliases' | while read file; do
     cat $file >> $filename
     echo "" >> $filename
   done
@@ -29,7 +29,7 @@ cd $PROJECT_HOME/dist
 find ./** -type d | while read folder_path; do
   echo "doing for folder $folder_path"
   cd $PROJECT_HOME/dist/$folder_path
-  find . -type f -name '*_aliases' -maxdepth 1  | while read file; do
+  find . -type f -name '*_aliases'  -name '*_aliases' -maxdepth 1  | while read file; do
     unaliasFile=$(basename $file | sed 's/alias/unalias/g')
     sed 's/alias/unalias/g' $file | sed "s/='.*'//g" >> $unaliasFile
 
@@ -63,3 +63,58 @@ find ./** -type d | while read folder_path; do
   echo "---------------------------" 
 done
 echo ""
+
+
+
+cd $PROJECT_HOME/dist
+echo "==============================="
+echo "creating install.sh file..."
+echo "==============================="
+
+gh_base="https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/"
+
+URLS=""
+OPTIONS=""
+FILES=($(find . -type f -name "*_aliases" ! -name "_*_*" 2>/dev/null))
+
+for file in "${FILES[@]}"
+do
+  option="$(echo $file | sed "s|\.\/bash\/||")"
+  OPTIONS+=" \"$option\"" 
+  url="$(echo $file | sed "s|\.\/|$gh_base|")" 
+  URLS+=" $url"
+done
+
+echo "---------------------"
+echo $URLS
+echo $OPTIONS
+
+
+echo "options=($OPTIONS)">./bash/install.sh
+echo "urls=($URLS)">>./bash/install.sh
+
+cat << 'END_OF_FILE' >> ./bash/install.sh
+menu() {
+    echo "Avaliable options:"
+    for i in ${!options[@]}; do 
+        printf "%3d%s) %s\n" $((i+1)) "${choices[i]:- }" "${options[i]}"
+    done
+    if [[ "$msg" ]]; then echo "$msg"; fi
+}
+
+prompt="Check an option (again to uncheck, ENTER when done): "
+while menu && read -rp "$prompt" num && [[ "$num" ]]; do
+    [[ "$num" != *[![:digit:]]* ]] &&
+    (( num > 0 && num <= ${#options[@]} )) ||
+    { msg="Invalid option: $num"; continue; }
+    ((num--)); msg="${options[num]} was ${choices[num]:+un}checked"
+    [[ "${choices[num]}" ]] && choices[num]="" || choices[num]="+"
+done
+
+printf "You selected"; msg=" nothing"
+for i in ${!options[@]}; do 
+    [[ "${choices[i]}" ]] && { printf " %s" "${urls[i]}"; msg=""; }
+done
+
+echo "$msg"
+END_OF_FILE
