@@ -3,6 +3,35 @@
 # customize with your own.
 options=("AAA" "BBB" "CCC" "DDD" "EEE")
 
+# define functions install / uninstall
+
+install() {
+    echo "$1" >> $saveFile
+    echo "$1 installed"
+}
+
+uninstall() {
+    cat ~/.cli_aliases | sed "s|^$1\$||g" | sed '/^$/d' > $saveFile
+    echo "$1 uninstalled"
+}
+
+
+#change to home directory
+cd ~
+
+saveFile=".cli_aliases"
+
+# create file if not exists
+test -f $saveFile || touch $saveFile
+
+# Read save file
+
+for i in ${!options[@]}; do
+    if grep -q "${options[i]}" "$saveFile"; then
+        choices[i]="+"
+    fi
+done
+
 menu() {
     echo "Avaliable options:"
     for i in ${!options[@]}; do 
@@ -18,6 +47,7 @@ while menu && read -rp "$prompt" num && [[ "$num" ]]; do
     { msg="Invalid option: $num"; continue; }
     ((num--)); msg="${options[num]} was ${choices[num]:+un}checked"
     [[ "${choices[num]}" ]] && choices[num]="" || choices[num]="+"
+    [[ "${choices[num]}" ]] && install ${options[num]} || uninstall ${options[num]}
 done
 
 printf "You selected"; msg=" nothing"
@@ -28,3 +58,6 @@ done
 echo "$msg"
 options=()
 choices=()
+
+
+
