@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # customize with your own.
-options=( "cli/cd_aliases" "cli/ls_aliases" "npm/install_aliases" "npm/update_aliases")
-urls=( https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/cd_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/ls_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/install_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/update_aliases)
+# options=( "cli/cd_aliases" "cli/ls_aliases" "npm/install_aliases" "npm/update_aliases")
+# urls=( https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/cd_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/ls_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/install_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/update_aliases)
 
 
 # define functions install / uninstall
