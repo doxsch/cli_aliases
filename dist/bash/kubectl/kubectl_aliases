@@ -1,10 +1,3 @@
-# change directories easily
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-# ls
-alias l='ls -lah'
 # kubectl 
 alias ku='kubectl' 
 alias kuc='kubectl-ctx' 
@@ -21,11 +14,3 @@ alias ku d s='kubectl delete service'
 alias ku d i='kubectl delete ingress'
 alias ku d d='kubectl delete deplyoment'
 alias ku d sec='kubectl delete secret'
-
-# npm install
-alias npi='npm install'
-alias npis='npm install --save'
-alias npig='npm install -g'
-# npm update
-alias npu='npm update'
-alias npug='npm update -g'

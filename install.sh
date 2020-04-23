@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # customize with your own.
-# options=( "cli/cd_aliases" "cli/ls_aliases" "npm/install_aliases" "npm/update_aliases")
-# urls=( https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/cd_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/ls_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/install_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/update_aliases)
+options=( "cli/cd_aliases" "cli/ls_aliases" "npm/install_aliases" "npm/update_aliases")
+urls=( https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/cd_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/cli/ls_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/install_aliases https://raw.githubusercontent.com/doxsch/cli_aliases/master/dist/bash/npm/update_aliases)
 
 
 # define functions install / uninstall
@@ -11,8 +11,6 @@
 install() {
     # $1 option $2 url
     echo "source <(curl -s -H 'Cache-Control: no-cache' $2)" >> $profileFile 
-    # source <(curl -s -H 'Cache-Control: no-cache' $2)
-
     echo ""
     echo ""
     echo ""
@@ -27,9 +25,8 @@ uninstall() {
     encodedUrl=$(echo "$2"|sed "s|\.|\\\.|g")
     cat $profileFile | sed "s|^source <(curl -s -H 'Cache-Control: no-cache' $encodedUrl)\$||g" | sed '/^$/d' > $profileFile 
 
-    # unaliasUrl=$(echo $2 | sed "s|alias|unalias|g")
-    # echo $unaliasUrl
-    # source <(curl -s -H 'Cache-Control: no-cache' $unaliasUrl)
+    # unaliasUrl=$(echo $2 | sed "s|aliases$|unaliases|g")
+    # echo "source <(curl -s -H 'Cache-Control: no-cache' $unaliasUrl)" >> $uninstallFile
 
     echo ""
     echo ""
@@ -53,9 +50,11 @@ echo "           |_____|                                                        
 cd ~
 
 profileFile=".bash_profile"
+uninstallFile=".cli_alias_to_uninstall"
 
 # create file if not exists
 test -f $profileFile || touch $profileFile
+test -f $uninstallFile || touch $uninstallFile
 
 # Read save file
 
@@ -89,11 +88,9 @@ while menu && read -rp "$prompt" num && [[ "$num" ]]; do
     [[ "${choices[num]}" ]] && install ${options[num]} ${urls[num]} || uninstall ${options[num]} ${urls[num]}
 done
 
-source ~/.bash_profile
-printf "Exit Installer";
+printf "Exit Installer. Please run 'unalias -a && source ~/.bash_profile' to apply install/uninstall";
 
 options=()
 choices=()
-
 
 

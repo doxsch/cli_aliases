@@ -1,10 +1,3 @@
-# change directories easily
-unalias ..
-unalias ...
-unalias ....
-unalias .....
-# ls
-unalias l
 # kubectl 
 unalias ku 
 unalias kuc 
@@ -21,12 +14,4 @@ unalias ku d s
 unalias ku d i
 unalias ku d d
 unalias ku d sec
-
-# npm install
-unalias npi
-unalias npis
-unalias npig
-# npm update
-unalias npu
-unalias npug
 
