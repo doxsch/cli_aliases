@@ -28,35 +28,35 @@ alias kun='kubectl-ns'
 ```
 
 ```bash
-alias ku g p='kubectl get pods'
+alias kugp='kubectl get pods'
 ```
 ```bash
-alias ku g s='kubectl get services'
+alias kugs='kubectl get services'
 ```
 ```bash
-alias ku g i='kubectl get ingress'
+alias kugi='kubectl get ingress'
 ```
 ```bash
-alias ku g d='kubectl get deplyoments'
+alias kugd='kubectl get deplyoments'
 ```
 ```bash
-alias ku g sec='kubectl get secrets'
+alias kugsec='kubectl get secrets'
 ```
 
 ```bash
-alias ku d p='kubectl delete pod'
+alias kudp='kubectl delete pod'
 ```
 ```bash
-alias ku d s='kubectl delete service'
+alias kuds='kubectl delete service'
 ```
 ```bash
-alias ku d i='kubectl delete ingress'
+alias kudi='kubectl delete ingress'
 ```
 ```bash
-alias ku d d='kubectl delete deplyoment'
+alias kudd='kubectl delete deplyoment'
 ```
 ```bash
-alias ku d sec='kubectl delete secret'
+alias kudsec='kubectl delete secret'
 ```
 
 ## npm install

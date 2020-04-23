@@ -3,16 +3,16 @@ unalias ku
 unalias kuc 
 unalias kun
 
-unalias ku g p
-unalias ku g s
-unalias ku g i
-unalias ku g d
-unalias ku g sec
+unalias kugp
+unalias kugs
+unalias kugi
+unalias kugd
+unalias kugsec
 
-unalias ku d p
-unalias ku d s
-unalias ku d i
-unalias ku d d
-unalias ku d sec
+unalias kudp
+unalias kuds
+unalias kudi
+unalias kudd
+unalias kudsec
 
 
