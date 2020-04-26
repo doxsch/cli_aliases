@@ -1,6 +1,11 @@
 # Aliases for cli
 Helpful cli aliases to boost productivity
 
+## Aliases
+The individual aliases can be looked up in the [dist folder](https://github.com/doxsch/cli_aliases/tree/master/dist/bash).
+
+
+
 ## Installation
 Run this command to start the installer
 ``` bash

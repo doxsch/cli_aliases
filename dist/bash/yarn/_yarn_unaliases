@@ -1,0 +1,25 @@
+# Yarn global
+unalias yaga
+unalias yagrm
+unalias yagul
+
+# Yarn
+unalias ya
+
+# Yarn run
+unalias yar
+unalias yars
+unalias yart
+unalias yarb
+
+# Yarn add/remove
+unalias yaa
+unalias yarm
+
+# Yarn upgrade
+unalias yau
+unalias yaul
+unalias yaui
+unalias yauil
+
+
