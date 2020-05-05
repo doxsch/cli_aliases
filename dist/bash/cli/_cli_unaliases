@@ -1,3 +1,5 @@
+# apt get
+unalias apt-get
 # change directories easily
 unalias ..
 unalias ...

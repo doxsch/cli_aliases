@@ -1,4 +1,8 @@
 # bash
+## apt get
+```bash
+alias apt-get='sudo apt-get'
+```
 ## change directories easily
 ```bash
 alias ..='cd ..'

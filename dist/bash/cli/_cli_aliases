@@ -1,3 +1,5 @@
+# apt get
+alias apt-get='sudo apt-get'
 # change directories easily
 alias ..='cd ..'
 alias ...='cd ../..'
